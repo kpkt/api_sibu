@@ -12,72 +12,72 @@ Dalam menghasilkan rekaan _front-end_, tutorial ini menggunakan _Bootstrap frame
 Wujudkan _database_ dan _table_ seperti dibawah
 
 ```php
---
--- Database: `db_api`
---
+-- phpMyAdmin SQL Dump
+
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 --
-CREATE DATABASE IF NOT EXISTS db_api;
+-- Database: `db_staffs`
 --
+CREATE DATABASE IF NOT EXISTS `db_staffs` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `db_staffs`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table `staffs`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
+DROP TABLE IF EXISTS `staffs`;
+CREATE TABLE `staffs` (
+  `id` int(11) NOT NULL,
+  `fname` varchar(255) DEFAULT NULL,
+  `lname` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
+  `address` text,
+  `gender` varchar(255) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-
--- 
--- Dumping data for table `users`
+--
+-- Dumping data for table `staffs`
 --
 
+INSERT INTO `staffs` (`id`, `fname`, `lname`, `email`, `phone`, `address`, `gender`, `created`, `modified`) VALUES
+(1, 'Ahmad', 'Zahrulnizam', 'zarul@gmail.com', '123445', 'KL', 'Perempuan', NULL, NULL),
+(2, 'Mohamad', 'Zaki', 'mzms@gmail.com', '123456789', 'KL', 'Lelaki', '2017-05-24 00:00:00', '2017-05-17 00:00:00'),
+(3, 'Mohd', 'Husin', 'husin@gmail.com', '12345667', 'Putrajaya', 'Lelaki', '2017-05-17 00:00:00', '2017-05-17 00:00:00'),
+(4, 'Mohd', 'Jaafar', 'jaafar@gmail.com', '12345667', 'Putrajaya', 'Lelaki', '2017-05-17 00:00:00', '2017-05-17 00:00:00'),
+(5, 'Mohd', 'Zahari', 'zahari@gmail.com', '12345667', 'Putrajaya', 'Lelaki', '2017-05-17 00:00:00', '2017-05-17 00:00:00'),
+(6, 'Mohd', 'Johan', 'johan@gmail.com', '12345667', 'Putrajaya', 'Lelaki', '2017-05-17 00:00:00', '2017-05-17 00:00:00'),
+(7, 'Saiful', 'Ahmad', 'saiful@gmail.com', '12344656', 'KL', 'Lelaki', NULL, NULL);
 
-INSERT INTO `users` VALUES (1, 'Nur Azyani bin Abdul Manaf','azyani@gmail.com','0113456789');
-INSERT INTO `users` VALUES (2, 'Nurul Annisa Anuar','annisa@gmail.com','0123456789');
-INSERT INTO `users` VALUES (3, 'Saifullah Poniman','saifullah@gmail.com','0133456789');
-INSERT INTO `users` VALUES (4, 'Mohd Salleh Daim','salled.daim@gmail.com','0143456789');
+--
+-- Indexes for dumped tables
+--
 
+--
+-- Indexes for table `staffs`
+--
+ALTER TABLE `staffs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `staffs`
+--
+ALTER TABLE `staffs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 ```
 
-# Directory
-
-Direktori fail projek seperti dibawah 
-
-```php
-bootstrap/
-   --css/
-      --bootstrap.min.css
-   --js/
-       --bootstrap.min.js
-   --fonts/
-       --glyphicons-halflings-regular.eot
-       --glyphicons-halflings-regular.svg
-       --glyphicons-halflings-regular.ttf
-       --glyphicons-halflings-regular.woff
-js/
-   --jquery.min.js
-css/
-   --style.css
-inc/
-   --inc.dbconfig.php
-   --inc.class.crud.php  
-   --inc.footer.php
-   --inc.header.php
-index.php
-add.php
-edit.php
-view.php
-
-
-```
+#
 
 # Config
 
@@ -96,26 +96,8 @@ $dbName = "db_php_sample";
 
 ```
 
-# CRUD Class
-
-Fail inc.class.crud.php menempatkan fungsi asas CRUD dan fungsi memanggil semua data dan data terpilih.
-
-```php
-
-function get_all_data($query)
-
-function create($param1, $param2, $param3, $paramN)
-
-function read($id)
-
-function update($id, $param1, $param2, $param3, $paramN)
-
-function delete($id)
-
-```
-
 # Download
 
 Download the script by clicking following link and try it in your projects.
 
-[Download](https://github.com/kpkt/rest_api/archive/master.zip).
+[Download](https://github.com/kpkt/api_sibu/archive/master.zip).
